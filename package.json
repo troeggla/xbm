@@ -13,6 +13,7 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "build": "tsc",
+    "test": "jest --verbose --bail --coverage",
     "lint": "eslint --ext=ts .",
     "prepare": "yarn build",
     "prepublishOnly": "yarn lint",
