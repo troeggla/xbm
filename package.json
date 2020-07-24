@@ -1,0 +1,9 @@
+{
+  "name": "xbm",
+  "version": "1.0.0",
+  "description": "Tools for reading and writing XBitmap (XBM) files",
+  "main": "index.js",
+  "repository": "https://github.com/troeggla/xbm",
+  "author": "Thomas Röggla <t.roggla@cwi.nl>",
+  "license": "BSD-2-Clause"
+}
