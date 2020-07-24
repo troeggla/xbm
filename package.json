@@ -15,7 +15,9 @@
     "build": "tsc",
     "lint": "eslint --ext=ts .",
     "prepare": "yarn build",
-    "prepublishOnly": "yarn lint"
+    "prepublishOnly": "yarn lint",
+    "preversion": "yarn lint",
+    "postversion": "git push && git push --tags"
   },
   "files": [
     "lib/**/*"
