@@ -1,6 +1,6 @@
 import { toPaddedBinary, toHex, reverse } from "./util";
 
-function initGrid(dimensions: [number, number], initialData: boolean[][] = []): boolean[][] {
+function initGrid(dimensions: [number, number]): boolean[][] {
   const [width, height] = dimensions;
   const matrix: boolean[][] = [];
 
@@ -9,17 +9,6 @@ function initGrid(dimensions: [number, number], initialData: boolean[][] = []): 
 
     for (let y = 0; y < height; y++) {
       matrix[x][y] = false;
-    }
-  }
-
-  if (initialData.length > 0) {
-    const copyWidth = Math.min(width, initialData.length);
-    const copyHeight = Math.min(height, initialData[0].length);
-
-    for (let x = 0; x < copyWidth; x++) {
-      for (let y = 0; y < copyHeight; y++) {
-        matrix[x][y] = initialData[x][y];
-      }
     }
   }
 
