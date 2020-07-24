@@ -12,6 +12,10 @@
   "files": [
     "lib/**/*"
   ],
+  "bugs": {
+    "url": "https://github.com/troeggla/xbm/issues"
+  },
+  "homepage": "https://github.com/troeggla/xbm",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
