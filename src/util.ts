@@ -8,7 +8,7 @@
  * @param pad Pad character
  * @returns The padded string
  */
-function padStart(str: string, targetLen: number, pad = "0"): string {
+function padStart(str: string, targetLen: number, pad: string): string {
   // Return string if it is longer or equal to targetLen
   if (str.length >= targetLen) {
     return str;
