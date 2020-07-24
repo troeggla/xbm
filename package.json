@@ -16,7 +16,7 @@
     "test": "jest --verbose --bail --coverage",
     "lint": "eslint --ext=ts .",
     "prepare": "yarn build",
-    "prepublishOnly": "yarn lint",
+    "prepublishOnly": "yarn test && yarn lint",
     "preversion": "yarn lint",
     "postversion": "git push && git push --tags"
   },
