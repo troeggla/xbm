@@ -27,9 +27,12 @@
   },
   "homepage": "https://github.com/troeggla/xbm",
   "devDependencies": {
+    "@types/jest": "^26.0.7",
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
     "eslint": "^7.5.0",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.3",
     "typescript": "^3.9.7"
   }
 }
