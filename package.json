@@ -1,12 +1,15 @@
 {
   "name": "xbm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools for reading and writing XBitmap (XBM) files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "https://github.com/troeggla/xbm",
   "author": "Thomas Röggla <t.roggla@cwi.nl>",
-  "keywords": ["XBM", "XBitmap"],
+  "keywords": [
+    "XBM",
+    "XBitmap"
+  ],
   "license": "BSD-2-Clause",
   "scripts": {
     "build": "tsc",
