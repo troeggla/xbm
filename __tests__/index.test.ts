@@ -100,4 +100,70 @@ describe("Function readXBM()", () => {
 
     expect(readXBM(data)).toEqual([[false]]);
   });
+
+  it("should not parse XBM-formatted data without a given width", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_height 1\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x00" +
+      "};\n"
+    );
+
+    expect(readXBM.bind(null, data)).toThrow(
+      "Could not extract valid dimensions from input"
+    );
+  });
+
+  it("should not parse XBM-formatted data without a given height", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_width 1\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x00" +
+      "};\n"
+    );
+
+    expect(readXBM.bind(null, data)).toThrow(
+      "Could not extract valid dimensions from input"
+    );
+  });
+
+  it("should not parse XBM-formatted data with a width of 0", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_height 1\n" +
+      "#define test_width 0\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x00" +
+      "};\n"
+    );
+
+    expect(readXBM.bind(null, data)).toThrow(
+      "Could not extract valid dimensions from input"
+    );
+  });
+
+  it("should not parse XBM-formatted data with a height of 0", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_height 0\n" +
+      "#define test_width 1\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x00" +
+      "};\n"
+    );
+
+    expect(readXBM.bind(null, data)).toThrow(
+      "Could not extract valid dimensions from input"
+    );
+  });
 });
