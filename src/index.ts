@@ -205,6 +205,10 @@ export function readXBM(data: string): boolean[][] | undefined {
  * @returns XBM-formatted data
  */
 export function generateXBM(name: string, grid: boolean[][]): string {
+  if (name.length === 0) {
+    throw new Error("name cannot be empty");
+  }
+
   // Get desired width and height of the image
   const width = grid.length;
   const height = grid[0].length;

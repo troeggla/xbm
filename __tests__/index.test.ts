@@ -30,4 +30,8 @@ describe("Function generateXBM()", () => {
     expect(result).toMatch(/test_height 1/);
     expect(result).toMatch(/\{.*0x00.*\}/s);
   });
+
+  it("should not accept an empty string as variable name", () => {
+    expect(generateXBM.bind(null, "", [[true]])).toThrow();
+  });
 });
