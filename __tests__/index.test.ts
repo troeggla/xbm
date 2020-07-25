@@ -166,4 +166,32 @@ describe("Function readXBM()", () => {
       "Could not extract valid dimensions from input"
     );
   });
+
+  it("should not parse XBM-formatted string without data portion", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_height 1\n" +
+      "#define test_width 1\n"
+    );
+
+    expect(readXBM.bind(null, data)).toThrow(
+      "Could parse XBM data field"
+    );
+  });
+
+  it("should not parse XBM-formatted string empty data portion", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_height 1\n" +
+      "#define test_width 1\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "};\n"
+    );
+
+    expect(readXBM.bind(null, data)).toThrow(
+      "Could parse XBM data field"
+    );
+  });
 });
