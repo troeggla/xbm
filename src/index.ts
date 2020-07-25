@@ -150,7 +150,7 @@ function getPixels(data: string): Array<string> | undefined {
 /**
  * Takes a string of XBM-formatted data, parses it and returns a matrix of the
  * given width and height containing the data from the XBM as boolean values.
- * If the contents of the string cannot be parsed, `undefined` is returned.
+ * If the contents of the string cannot be parsed, an error is thrown.
  *
  * @param data String containing XBM-formatted data
  * @returns A matrix of boolean values or undefined
@@ -160,6 +160,7 @@ export function readXBM(data: string): boolean[][] | undefined {
   const height = getHeight(data);
   const width = getWidth(data);
 
+  // Make sure neither width nor height are 0
   if (width == 0 || height == 0) {
     throw new Error("Could not extract valid dimensions from input");
   }
@@ -172,9 +173,9 @@ export function readXBM(data: string): boolean[][] | undefined {
   // Initialise grid with extracted widht and height
   const grid = initGrid([width, height]);
 
-  // Return undefined if data could not be parsed
+  // Throw error if data could not be parsed
   if (!bitstr) {
-    return undefined;
+    throw new Error("Could parse XBM data field");
   }
 
   try {
