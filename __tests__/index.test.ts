@@ -1,4 +1,4 @@
-import { generateXBM } from "../src";
+import { generateXBM, readXBM } from "../src";
 
 describe("Function generateXBM()", () => {
   it("should generate a 1x1 XBM file from a 1x1 input matrix, padding output to mulitple of 8", () => {
@@ -67,5 +67,37 @@ describe("Function generateXBM()", () => {
 
     expect(data.length).toEqual(4);
     expect(data).toEqual(["0x01", "0x02", "0x04", "0x08"]);
+  });
+});
+
+describe("Function readXBM()", () => {
+  it("should parse basic XBM-formatted data as a 1x1 grid with the pixel set to 1", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_width 1\n" +
+      "#define test_height 1\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x01" +
+      "};\n"
+    );
+
+    expect(readXBM(data)).toEqual([[true]]);
+  });
+
+  it("should parse basic XBM-formatted data as a 1x1 grid with the pixel set to 0", () => {
+    const data = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_width 1\n" +
+      "#define test_height 1\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x00" +
+      "};\n"
+    );
+
+    expect(readXBM(data)).toEqual([[false]]);
   });
 });
