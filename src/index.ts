@@ -159,6 +159,11 @@ export function readXBM(data: string): boolean[][] | undefined {
   // Extract width and height from the data
   const height = getHeight(data);
   const width = getWidth(data);
+
+  if (width == 0 || height == 0) {
+    throw new Error("Could not extract valid dimensions from input");
+  }
+
   // Get padded width as mulitple of 8
   const fileWidth = Math.ceil(width / 8) * 8;
 
