@@ -35,9 +35,16 @@ describe("Function generateXBM()", () => {
     expect(generateXBM.bind(null, "", [[true]])).toThrow();
   });
 
-  it("should not accept an empty grid", () => {
-    expect(generateXBM.bind(null, "test", [])).toThrow();
-    expect(generateXBM.bind(null, "test", [[]])).toThrow();
+  it("should not accept a grid with a width of 0", () => {
+    expect(generateXBM.bind(null, "test", [])).toThrow(
+      "Grid cannot be of width 0"
+    );
+  });
+
+  it("should not accept a grid with a height of 0", () => {
+    expect(generateXBM.bind(null, "test", [[]])).toThrow(
+      "Grid cannot be of height 0"
+    );
   });
 
   it("should generate a 4x4 image", () => {

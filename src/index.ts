@@ -211,12 +211,15 @@ export function generateXBM(name: string, grid: boolean[][]): string {
 
   // Get desired width and height of the image
   const width = grid.length;
-  // Make sure height is assigned zero if grid has no y dimension
-  const height = grid?.[0].length || 0;
+  // Make sure width is not 0
+  if (width == 0) {
+    throw new Error("Grid cannot be of width 0");
+  }
 
-  // Make sure width and height are > 0
-  if (width === 0 || height === 0) {
-    throw new Error("Grid is not a valid two-dimensional array");
+  const height = grid[0].length;
+  // Make sure height is not 0
+  if (height == 0) {
+    throw new Error("Grid cannot be of height 0");
   }
 
   // Flatten grid and initialise output array
