@@ -39,4 +39,26 @@ describe("Function generateXBM()", () => {
     expect(generateXBM.bind(null, "test", [])).toThrow();
     expect(generateXBM.bind(null, "test", [[]])).toThrow();
   });
+
+  it("should generate a 4x4 image", () => {
+    const result = generateXBM("test", [
+      [true, false, false, false],
+      [false, true, false, false],
+      [false, false, true, false],
+      [false, false, false, true]
+    ]);
+
+    expect(result).toMatch("test_width 4");
+    expect(result).toMatch("test_height 4");
+
+    const matches = result.match(/\{(.+)\}/s);
+
+    expect(matches).not.toBeNull();
+    expect(matches!.length).toEqual(2);
+
+    const data = matches![1].split(",").map((s) => s.trim()).filter((s) => s != "");
+
+    expect(data.length).toEqual(4);
+    expect(data).toEqual(["0x01", "0x02", "0x04", "0x08"]);
+  });
 });
