@@ -34,4 +34,9 @@ describe("Function generateXBM()", () => {
   it("should not accept an empty string as variable name", () => {
     expect(generateXBM.bind(null, "", [[true]])).toThrow();
   });
+
+  it("should not accept an empty grid", () => {
+    expect(generateXBM.bind(null, "test", [])).toThrow();
+    expect(generateXBM.bind(null, "test", [[]])).toThrow();
+  });
 });

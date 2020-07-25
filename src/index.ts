@@ -206,12 +206,18 @@ export function readXBM(data: string): boolean[][] | undefined {
  */
 export function generateXBM(name: string, grid: boolean[][]): string {
   if (name.length === 0) {
-    throw new Error("name cannot be empty");
+    throw new Error("Name cannot be empty");
   }
 
   // Get desired width and height of the image
   const width = grid.length;
-  const height = grid[0].length;
+  // Make sure height is assigned zero if grid has no y dimension
+  const height = grid?.[0].length || 0;
+
+  // Make sure width and height are > 0
+  if (width === 0 || height === 0) {
+    throw new Error("Grid is not a valid two-dimensional array");
+  }
 
   // Flatten grid and initialise output array
   const flatGrid = flatten(grid);
