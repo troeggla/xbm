@@ -178,25 +178,19 @@ export function readXBM(data: string): boolean[][] | undefined {
     throw new Error("Could parse XBM data field");
   }
 
-  try {
-    // Iterate over bit string
-    for (let i = 0; i < bitstr.length; i++) {
-      // Current coordinates
-      const y = Math.floor(i / fileWidth);
-      const x = i % fileWidth;
+  // Iterate over bit string
+  for (let i = 0; i < bitstr.length; i++) {
+    // Current coordinates
+    const y = Math.floor(i / fileWidth);
+    const x = i % fileWidth;
 
-      // Skip to next if the x coordinate is bigger then the image width
-      if (x >= width) {
-        continue;
-      }
-
-      // Initialse the pixel in the output grid to true or false
-      grid[x][y] = (bitstr[i] === "1") ? true : false;
+    // Skip to next if the x coordinate is bigger then the image width
+    if (x >= width) {
+      continue;
     }
-  } catch (e) {
-    // Returns undefined if there was an error
-    console.error(e);
-    return undefined;
+
+    // Initialse the pixel in the output grid to true or false
+    grid[x][y] = (bitstr[i] === "1") ? true : false;
   }
 
   return grid;
