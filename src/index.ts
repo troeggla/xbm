@@ -153,7 +153,7 @@ function getPixels(data: string): Array<string> | undefined {
  * If the contents of the string cannot be parsed, an error is thrown.
  *
  * @param data String containing XBM-formatted data
- * @returns A matrix of boolean values or undefined
+ * @returns A matrix of boolean values
  */
 export function readXBM(data: string): boolean[][] {
   // Extract width and height from the data
