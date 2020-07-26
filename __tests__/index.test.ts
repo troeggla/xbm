@@ -233,3 +233,47 @@ describe("Function readXBM()", () => {
     );
   });
 });
+
+describe("Round-trip test", () => {
+  it("should convert a matrix to XBM and back again", () => {
+    const grid = [
+      [true, false, false, true],
+      [false, true, false, false],
+      [true, false, true, false],
+      [false, false, true, true]
+    ];
+
+    const generatedXBM = generateXBM("test", grid);
+    expect(readXBM(generatedXBM)).toEqual(grid);
+  });
+
+  it("should convert XBM-format data to a grid and back again", () => {
+    const input = (
+      "#define test_width 4\n" +
+      "#define test_height 4\n" +
+      "\n" +
+      "static char test_bits[] = {\n" +
+      "  0x01, 0x02, 0x04, 0x08,\n" +
+      "};\n"
+    );
+
+    const grid = readXBM(input);
+    expect(generateXBM("test", grid)).toEqual(input);
+  });
+
+  it("should convert XBM-format data to a grid and back again with Arduino headers", () => {
+    const input = (
+      "#include <Arduino.h>\n" +
+      "\n" +
+      "#define test_width 4\n" +
+      "#define test_height 4\n" +
+      "\n" +
+      "const PROGMEM uint8_t test_bits[] = {\n" +
+      "  0x01, 0x02, 0x04, 0x08,\n" +
+      "};\n"
+    );
+
+    const grid = readXBM(input);
+    expect(generateXBM("test", grid, true)).toEqual(input);
+  });
+});
