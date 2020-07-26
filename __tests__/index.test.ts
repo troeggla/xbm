@@ -9,6 +9,20 @@ describe("Function generateXBM()", () => {
     expect(result).toMatch(/\{.*0x01.*\}/s);
   });
 
+  it("should generate a 1x1 XBM file without Arduino header", () => {
+    const result = generateXBM("test", [[true]]);
+
+    expect(result).not.toMatch("Arduino.h");
+    expect(result).not.toMatch("const PROGMEM uint8_t");
+  });
+
+  it("should generate a 1x1 XBM file with Arduino header", () => {
+    const result = generateXBM("test", [[true]], true);
+
+    expect(result).toMatch("Arduino.h");
+    expect(result).toMatch("const PROGMEM uint8_t");
+  });
+
   it("should generate a 8x1 XBM file from a 8x1 input matrix", () => {
     const result = generateXBM("test", [
       [true], [true], [true], [true],
@@ -57,6 +71,30 @@ describe("Function generateXBM()", () => {
 
     expect(result).toMatch("test_width 4");
     expect(result).toMatch("test_height 4");
+
+    const matches = result.match(/\{(.+)\}/s);
+
+    expect(matches).not.toBeNull();
+    expect(matches!.length).toEqual(2);
+
+    const data = matches![1].split(",").map((s) => s.trim()).filter((s) => s != "");
+
+    expect(data.length).toEqual(4);
+    expect(data).toEqual(["0x01", "0x02", "0x04", "0x08"]);
+  });
+
+  it("should generate a 4x4 image with Arduino headers", () => {
+    const result = generateXBM("test", [
+      [true, false, false, false],
+      [false, true, false, false],
+      [false, false, true, false],
+      [false, false, false, true]
+    ], true);
+
+    expect(result).toMatch("test_width 4");
+    expect(result).toMatch("test_height 4");
+    expect(result).toMatch("Arduino.h");
+    expect(result).toMatch("const PROGMEM uint8_t");
 
     const matches = result.match(/\{(.+)\}/s);
 
