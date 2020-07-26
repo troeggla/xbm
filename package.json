@@ -15,6 +15,7 @@
     "build": "tsc",
     "test": "jest --verbose --bail --coverage",
     "lint": "eslint --ext=ts .",
+    "docs": "typedoc --mode modules --out docs src",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint",
     "preversion": "yarn lint",
