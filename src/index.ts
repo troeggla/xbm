@@ -198,13 +198,15 @@ export function readXBM(data: string): boolean[][] {
 
 /**
  * Takes a grid of boolean values and converts it into XBM-formatted data which
- * is returned as a string.
+ * is returned as a string. Optionally, the parameter `arduinoHeader` can be
+ * set to true to generate an XBM file specifically for Arduino.
  *
  * @param name Name of the variable to be used in the output file
  * @param grid The grid from which the XBM data shall be generated
+ * @param arduinoHeader Generate Arduino-compatible XBM (default `false`)
  * @returns XBM-formatted data
  */
-export function generateXBM(name: string, grid: boolean[][]): string {
+export function generateXBM(name: string, grid: boolean[][], arduinoHeader = false): string {
   if (name.length === 0) {
     throw new Error("Name cannot be empty");
   }
@@ -241,8 +243,20 @@ export function generateXBM(name: string, grid: boolean[][]): string {
     );
   }
 
-  // Wrap data in required C code, add define statements for width and height
-  // and convert byte array to hex numbers in groups of 12
+  // Generate required C code without including Arduino header
+  if (!arduinoHeader) {
+    return (
+      `#define ${name}_width ${width}\n` +
+      `#define ${name}_height ${height}\n` +
+      "\n" +
+      `static char ${name}_bits[] = {\n` +
+      formatBytes(byteArray) +
+      "};\n"
+    );
+  }
+
+  // Wrap data in required C code, add define statements for width and height,
+  // add Arduino header and convert byte array to hex numbers in groups of 12
   return (
     "#include <Arduino.h>\n" +
     "\n" +
