@@ -155,7 +155,7 @@ function getPixels(data: string): Array<string> | undefined {
  * @param data String containing XBM-formatted data
  * @returns A matrix of boolean values or undefined
  */
-export function readXBM(data: string): boolean[][] | undefined {
+export function readXBM(data: string): boolean[][] {
   // Extract width and height from the data
   const height = getHeight(data);
   const width = getWidth(data);
