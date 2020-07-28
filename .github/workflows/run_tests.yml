@@ -18,6 +18,9 @@ jobs:
         run: yarn install
 
       - name: Run unit tests
+        run: yarn lint
+
+      - name: Run unit tests
         run: yarn test
 
       - name: Upload coverage to Codecov
