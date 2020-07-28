@@ -15,7 +15,7 @@
     "build": "tsc",
     "test": "jest --verbose --bail --coverage",
     "lint": "eslint --ext=ts .",
-    "docs": "typedoc --mode modules --out docs src",
+    "docs": "typedoc --mode modules --out docs src && touch docs/.nojekyll",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint",
     "preversion": "yarn lint",
