@@ -9,6 +9,7 @@ matrix of booleans where each entry represents a "pixel". The second function
 is `generateXBM(name, grid)`, which takes a name for the variables in the
 output string and a two-dimensional matrix of boolean values and converts it
 into XBM-formatted data as a string.
+Refer to the [documentation](https://troeggla.github.io/xbm/) for more details.
 
 Files in the XBM format are essentially little C header files containing image
 data stored in a numeric format, where each bit of these numbers represents a
