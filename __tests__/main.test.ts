@@ -1,4 +1,4 @@
-import { generateXBM, readXBM } from "../src";
+import { generateXBM, readXBM } from "../src/main";
 
 describe("Function generateXBM()", () => {
   it("should generate a 1x1 XBM file from a 1x1 input matrix, padding output to mulitple of 8", () => {
