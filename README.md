@@ -1,5 +1,7 @@
 # XBM Tools
 
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/troeggla/xbm/master.svg?style=flat-square)](https://codecov.io/gh/troeggla/xbm/)
+
 This package contains functions for reading and writing XBM-formatted data.
 The package exports two main functions. The first of which is `readXBM(data)`,
 which reads XBM-formatted data as a string, tries to parse it and returns a
