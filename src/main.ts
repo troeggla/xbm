@@ -1,30 +1,6 @@
 import { toPaddedBinary, toHex, reverse } from "./util";
 
 /**
- * Initialises a matrix with the given dimensions and returns it. Each element
- * in the matrix is initialised to `false`.
- *
- * @param dimensions Dimensions of the matrix
- * @returns A matrix of the given dimension initialised to `false`
- */
-function initGrid(dimensions: [number, number]): boolean[][] {
-  const [width, height] = dimensions;
-  const matrix: boolean[][] = [];
-
-  // Initialise all the columns
-  for (let x = 0; x < width; x++) {
-    matrix[x] = [];
-
-    // Initialise every cell in the row to false
-    for (let y = 0; y < height; y++) {
-      matrix[x][y] = false;
-    }
-  }
-
-  return matrix;
-}
-
-/**
  * Takes a maktrix of boolean values and flattens it, i.e. returns a
  * one-dimensional array with all the rows concatenated. Moreover, if the
  * length of the rows is not evenly divisible by 8, they are padded to a length
@@ -171,7 +147,7 @@ export function readXBM(data: string): boolean[][] {
   // Extract pixel data from string
   const bitstr = getPixels(data);
   // Initialise grid with extracted widht and height
-  const grid = initGrid([width, height]);
+  const grid: boolean[][] = [];
 
   // Throw error if data could not be parsed
   if (!bitstr) {
@@ -187,6 +163,11 @@ export function readXBM(data: string): boolean[][] {
     // Skip to next if the x coordinate is bigger then the image width
     if (x >= width) {
       continue;
+    }
+
+    // Initialise column if it's not initialised yet
+    if (!grid[x]) {
+      grid[x] = [];
     }
 
     // Initialse the pixel in the output grid to true or false
