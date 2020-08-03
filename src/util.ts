@@ -1,7 +1,7 @@
 /**
  * Takes a number, converts it to binary and makes sure it is padded to a
- * length of 8 (i.e. a byte). If the input binary is longer than 8, it is
- * returned unchanged.
+ * length of 8 (i.e. a byte). If the input is longer than 8 digits in binary,
+ * it is returned unchanged.
  *
  * @param num Number to be converted
  * @returns Binary number as a string of length 8

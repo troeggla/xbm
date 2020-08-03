@@ -1,7 +1,7 @@
 import { toPaddedBinary, toHex, reverse } from "./util";
 
 /**
- * Takes a maktrix of boolean values and flattens it, i.e. returns a
+ * Takes a matrix of boolean values and flattens it, i.e. returns a
  * one-dimensional array with all the rows concatenated. Moreover, if the
  * length of the rows is not evenly divisible by 8, they are padded to a length
  * which is divisible by 8 by appending the required number of `false` values.
@@ -93,7 +93,7 @@ function getHeight(data: string): number {
  * found, the block is split using the comma character as delimiter and the hex
  * values are converted to binary strings which are padded to the length of a
  * byte. This is then converted to an array of characters and returned. If no
- * block matching the conditions if found, `undefined` is returned.
+ * block matching the conditions is found, `undefined` is returned.
  *
  * @param data XBM formatted data as a string
  * @returns An array containing the data portion of the input as binary strings

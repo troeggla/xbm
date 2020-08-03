@@ -79,7 +79,6 @@
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_main_.html#getheight" class="tsd-kind-icon">get<wbr>Height</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_main_.html#getpixels" class="tsd-kind-icon">get<wbr>Pixels</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_main_.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_main_.html#initgrid" class="tsd-kind-icon">init<wbr>Grid</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_main_.html#readxbm" class="tsd-kind-icon">readXBM</a></li>
 							</ul>
 						</section>
@@ -98,12 +97,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:36</li>
+									<li>Defined in main.ts:12</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a maktrix of boolean values and flattens it, i.e. returns a
+									<p>Takes a matrix of boolean values and flattens it, i.e. returns a
 										one-dimensional array with all the rows concatenated. Moreover, if the
 										length of the rows is not evenly divisible by 8, they are padded to a length
 									which is divisible by 8 by appending the required number of <code>false</code> values.</p>
@@ -133,7 +132,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:66</li>
+									<li>Defined in main.ts:42</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -167,7 +166,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:209</li>
+									<li>Defined in main.ts:190</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:105</li>
+									<li>Defined in main.ts:81</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -247,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:125</li>
+									<li>Defined in main.ts:101</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -257,7 +256,7 @@
 										found, the block is split using the comma character as delimiter and the hex
 										values are converted to binary strings which are padded to the length of a
 										byte. This is then converted to an array of characters and returned. If no
-									block matching the conditions if found, <code>undefined</code> is returned.</p>
+									block matching the conditions is found, <code>undefined</code> is returned.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -284,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:88</li>
+									<li>Defined in main.ts:64</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -308,39 +307,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="initgrid" class="tsd-anchor"></a>
-					<h3>init<wbr>Grid</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">init<wbr>Grid<span class="tsd-signature-symbol">(</span>dimensions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in main.ts:10</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Initialises a matrix with the given dimensions and returns it. Each element
-									in the matrix is initialised to <code>false</code>.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>dimensions: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Dimensions of the matrix</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>A matrix of the given dimension initialised to <code>false</code></p>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="readxbm" class="tsd-anchor"></a>
 					<h3>readXBM</h3>
@@ -351,7 +317,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in main.ts:158</li>
+									<li>Defined in main.ts:134</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -413,9 +379,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_main_.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_main_.html#initgrid" class="tsd-kind-icon">init<wbr>Grid</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_main_.html#readxbm" class="tsd-kind-icon">readXBM</a>
