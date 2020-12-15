@@ -1,6 +1,6 @@
 {
   "name": "xbm",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Tools for reading and writing XBitmap (XBM) files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
