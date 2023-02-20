@@ -1,6 +1,6 @@
 # XBM Tools
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/troeggla/xbm/Run%20unit%20tests%20and%20upload%20coverage%20results)&emsp;[![Codecov Coverage](https://img.shields.io/codecov/c/github/troeggla/xbm/master.svg?style=flat-square)](https://codecov.io/gh/troeggla/xbm/)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/troeggla/xbm/run_tests.yml?branch=master)&emsp;[![Codecov Coverage](https://img.shields.io/codecov/c/github/troeggla/xbm/master.svg?style=flat-square)](https://codecov.io/gh/troeggla/xbm/)
 
 This package contains functions for reading and writing XBM-formatted data.
 The package exports two main functions. The first of which is `readXBM(data)`,
